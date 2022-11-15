@@ -1,11 +1,11 @@
-FROM gradle:4.7.0-jdk8-alpine AS build
+FROM gradle:7.5.1-jdk17-alpine AS build
 COPY --chown=gradle:gradle ./src /home/gradle/app/src
 COPY --chown=gradle:gradle build.gradle.kts /home/gradle/app
 COPY --chown=gradle:gradle settings.gradle.kts /home/gradle/app
 WORKDIR /home/gradle/app
 RUN gradle build --no-daemon
 
-FROM openjdk:8-jre-slim as run
+FROM amazoncorretto:17.0.5 as run
 RUN mkdir /app
-COPY --from=build /home/gradle/app/build/libs/*.jar /app/spring-boot-application.jar
-ENTRYPOINT ["java", "-jar","/app/spring-boot-application.jar"]
+COPY --from=build /home/gradle/app/build/libs/*.jar /app/
+ENTRYPOINT ["java", "-jar","/app/HighLoad1-0.0.1-SNAPSHOT.jar"]
