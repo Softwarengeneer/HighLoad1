@@ -7,7 +7,7 @@ plugins {
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
 	kotlin("plugin.jpa") version "1.6.21"
-//	id("org.springframework.experimental.aot") version "0.12.1"
+	id("org.springframework.experimental.aot") version "0.12.1"
 }
 
 group = "com.example"
