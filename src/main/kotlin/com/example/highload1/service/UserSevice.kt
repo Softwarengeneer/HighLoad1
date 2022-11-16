@@ -12,7 +12,7 @@ class UserSevice {
 
     @Throws(ExistenceException::class)
     fun register(userRegister: UserRegister) {
-        val name: String = userRegister.getName()
+//        val name: String = userRegister.getName()
 
     }
 }
