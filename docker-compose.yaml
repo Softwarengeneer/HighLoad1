@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+#  postgres:
+#    image: postgres:14.6-alpine
+#    environment:
+#      POSTGRES_USER: "pguser"
+#      POSTGRES_PASSWORD: "pguser"
+#      POSTGRES_DB: "pgdb"
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - "./volumes:/var/lib/postgresql"
+#    networks:
+#      - app-network
+  monolith:
+    build: .
+    container_name: "monolith_container"
+    image: "monolith_image"
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+#    depends_on:
+#      - postgres
+networks:
+  app-network:
+    driver: bridge
