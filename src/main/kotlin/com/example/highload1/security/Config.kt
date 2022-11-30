@@ -1,6 +1,5 @@
 package com.example.highload1.security
 
-import lombok.RequiredArgsConstructor
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -12,7 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 
 
-@RequiredArgsConstructor
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 class Config : WebSecurityConfigurerAdapter() {

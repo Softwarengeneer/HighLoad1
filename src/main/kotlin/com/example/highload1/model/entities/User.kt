@@ -1,11 +1,6 @@
 package com.example.highload1.model.entities
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import lombok.AllArgsConstructor
-import lombok.Builder
-import lombok.Data
-import lombok.NoArgsConstructor
-import lombok.experimental.SuperBuilder
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
@@ -18,11 +13,6 @@ import javax.validation.constraints.NotNull
 
 @Entity
 @Table(name = "user")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@SuperBuilder
 abstract class User: UserDetails {
     @Id
     @Column(name = "id")

@@ -1,10 +1,8 @@
 package com.example.highload1.security
 
-import com.example.highload1.persistance.User
+import com.example.highload1.model.entities.User
+import com.example.highload1.persistance.UserRepository
 import com.sun.istack.NotNull
-import lombok.RequiredArgsConstructor
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
-import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 import java.io.IOException
@@ -15,11 +13,10 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 
-@RequiredArgsConstructor
 @Component
 class JWTFilter : OncePerRequestFilter() {
     private val jwt: JWT? = null
-    private val user: User? = null
+    private val userRepository: UserRepository? = null
     @Throws(ServletException::class, IOException::class)
     public override fun doFilterInternal(
         @NotNull request: HttpServletRequest,
@@ -30,7 +27,7 @@ class JWTFilter : OncePerRequestFilter() {
         if (optionalJwt.isPresent && jwt!!.tokenIsValid(optionalJwt.get())) {
             val username = jwt.subjectFromToken(optionalJwt.get())
             val user: User =
-                user?.findByName(username)?.orElseThrow { NullPointerException() } ?: throw RuntimeException("")
+                userRepository?.findByName(username)?.orElseThrow { NullPointerException() } ?: throw RuntimeException("")
             //SecurityContextHolder.getContext().authentication =
                 //UsernamePasswordAuthenticationToken(user, null, user.getAuthorities())
         }
