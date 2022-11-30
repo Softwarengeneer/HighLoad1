@@ -34,6 +34,7 @@ dependencies {
 	implementation ("io.springfox:springfox-boot-starter:3.0.0")
 	implementation("io.jsonwebtoken:jjwt:0.9.1")
 	compileOnly("org.projectlombok:lombok")
+	compileOnly ("javax.servlet:javax.servlet-api:3.0.1")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	annotationProcessor("org.projectlombok:lombok")

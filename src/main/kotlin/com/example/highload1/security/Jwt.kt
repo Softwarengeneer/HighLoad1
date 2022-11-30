@@ -10,7 +10,7 @@ import java.util.*
 
 
 @Service
-class JWTUtil {
+class JWT{
     @Value("\${jwt.secret}")
     private val jwtSecret: String? = null
     fun generateToken(username: String?): String {
@@ -35,6 +35,6 @@ class JWTUtil {
     }
 
     fun subjectFromToken(token: String?): String {
-        return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject()
+        return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).body.subject
     }
 }
