@@ -23,6 +23,7 @@ class UserController {
         return ResponseEntity.ok(token)
     }
 
+
     @PostMapping("/sign-in")
     @SneakyThrows
     fun signIn(@RequestBody userLogin: UserLogin?): ResponseEntity<String?>? {
